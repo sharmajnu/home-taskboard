@@ -1,17 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7e58d131-07af-48d6-a203-0bf5f3416dd2" name="Default" comment="Fixed authentication stuff">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webserver/app/components/taskboard/taskboard.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webserver/app/components/taskboard/tasktemplate.html" />
-      <change type="DELETED" beforePath="D:\GitHub\home-taskboard\webserver\app\components\view1\view1.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webserver/app/styles/app.css" afterPath="$PROJECT_DIR$/webserver/app/styles/app.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webserver/app/app.js" afterPath="$PROJECT_DIR$/webserver/app/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower.json" afterPath="$PROJECT_DIR$/bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webserver/app/index.html" afterPath="$PROJECT_DIR$/webserver/app/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webserver/app/components/login/login.controller.js" afterPath="$PROJECT_DIR$/webserver/app/components/login/login.controller.js" />
+    <list default="true" id="7e58d131-07af-48d6-a203-0bf5f3416dd2" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MOVED" beforePath="D:\GitHub\home-taskboard\webserver\app\components\view1\view1.html" afterPath="$PROJECT_DIR$/webserver/app/components/taskboard/taskboard.html" />
     </list>
     <ignored path="simple-mean.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -408,7 +399,13 @@
       <option name="project" value="LOCAL" />
       <updated>1450273312469</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Added UI stuff to project">
+      <created>1450276314569</created>
+      <option name="number" value="00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1450276314569</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -417,6 +414,7 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24920969" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.46861473" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.534632" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -426,7 +424,6 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.46861473" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -452,7 +449,8 @@
     <MESSAGE value="Added config settings" />
     <MESSAGE value="more refactoring" />
     <MESSAGE value="Fixed authentication stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed authentication stuff" />
+    <MESSAGE value="Added UI stuff to project" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added UI stuff to project" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
