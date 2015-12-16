@@ -1,0 +1,31 @@
+<div class="task">
+    <span class="task-name">{{task.name}}</span>
+
+    <button ng-if="task.state != 3"
+            type="button" class="btn btn-primary btn-sm pull-right"
+            ng-click="moveToNextState(task);">
+        <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+    </button>
+
+    <button ng-if="task.state != 1"
+            type="button" class="btn btn-primary btn-sm pull-right"
+            ng-click="moveToPreviousState(task);">
+        <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+    </button>
+
+
+    <button  type="button" class="btn btn-success btn-sm pull-right" ng-click="open(task);">
+        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit
+    </button>
+
+    <p>{{task.description}}</p>
+
+    <div style="float: left">
+        <span class="hdr-lbl">Deadline: </span><span>{{task.deadLine}}</span>
+    </div>
+    <div style="float: right">
+        <span class="hdr-lbl">Created on: </span>
+        <span>{{task.createdDate}}</span>
+    </div>
+    <div style="clear: both"></div>
+</div>

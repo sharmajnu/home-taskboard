@@ -1,0 +1,32 @@
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4 task-col">
+            <div class="task-list-header">
+                <span>Backlog</span>
+                <button class="btn btn-primary pull-right" ng-click="open()">Create new</button>
+            </div>
+            <div class="task-list">
+                <my-task ng-repeat="task in tasks" ng-if="task.state == 1"></my-task>
+            </div>
+
+        </div>
+        <div class="col-md-4 task-col">
+            <div class="task-list-header">
+                <span>This week target</span>
+            </div>
+            <div class="task-list">
+                <my-task ng-repeat="task in tasks"  ng-if="task.state == 2"></my-task>
+            </div>
+        </div>
+        <div class="col-md-4 task-col">
+            <div class="task-list-header">
+                <span>Completed</span>
+            </div>
+            <div class="task-list">
+                <my-task ng-repeat="task in tasks"  ng-if="task.state == 3"></my-task>
+            </div>
+        </div>
+    </div>
+
+</div>

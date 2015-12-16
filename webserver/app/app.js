@@ -1,13 +1,12 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-angular.module('myApp', [
+angular.module('homeTaskBoard', [
   'ngRoute',
+    'ui.bootstrap',
   'satellizer',
-  'myApp.view1',
-  'myApp.login',
-  'myApp.details'
-
+  'homeTaskBoard.taskboard',
+  'homeTaskBoard.login'
 ]).
 controller('HeaderController', ['$scope', '$rootScope', 'userContext', function ($scope, $rootScope, userContext) {
     $rootScope.$watch('user', function(){
