@@ -1,0 +1,18 @@
+{
+  "name": "simple-mean",
+  "description": "A starter project for Node JS/Angular/Mongo/Express",
+  "version": "0.0.0",
+  "homepage": "https://github.com/sharmajnu/simple-mean",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "angular": "~1.4.0",
+    "angular-route": "~1.4.0",
+    "angular-loader": "~1.4.0",
+    "angular-mocks": "~1.4.0",
+    "html5-boilerplate": "~5.2.0",
+    "bootstrap": "~3.3.5",
+    "satellizer": "~0.12.5",
+    "Ionicons": "ionicons#~2.0.1"
+  }
+}
