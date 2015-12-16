@@ -15,7 +15,7 @@ controller('HeaderController', ['$scope', '$rootScope', 'userContext', function 
 }])
 
 .config(['$routeProvider', '$authProvider', function($routeProvider, $authProvider) {
-  $routeProvider.otherwise({redirectTo: '/view1'});
+  $routeProvider.otherwise({redirectTo: '/taskboard'});
       $authProvider.google({
         clientId: '978616852397-tbcptkaj8q0gjtoak4ap58rndnrd0g37.apps.googleusercontent.com',
         url: '/auth/google'

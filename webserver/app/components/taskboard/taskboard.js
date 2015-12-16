@@ -3,7 +3,7 @@
 var app = angular.module('homeTaskBoard.taskboard', ['ngRoute']);
 
 app.config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/view1', {
+  $routeProvider.when('/taskboard', {
     templateUrl: '/components/taskboard/taskboard.html',
     controller: 'TaskController'
   });
@@ -56,7 +56,7 @@ app.controller('TaskController', ['$scope', '$uibModal', function($scope, $uibMo
 
         var modalInstance = $uibModal.open({
             animation: true,
-            templateUrl: 'createitemtemplate.html',
+            templateUrl: 'components/taskboard/createitemtemplate.html',
             controller: 'CreateTaskModelController',
             resolve: {
                 task: function () {
