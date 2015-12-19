@@ -2,13 +2,9 @@ var User = require('../models/user.server.model.js');
 var jwt = require('jwt-simple');
 var config = require('../config/config.js');
 
-var secret = 'This is top secret';
-
 function createPayloadAndSendResponse(user, token, res) {
 
     if (user) {
-
-
         var payload = {
             iss: 'tys',
             sub: user._id,

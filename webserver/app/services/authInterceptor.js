@@ -2,7 +2,7 @@
  * Created by DEEPAK.SHARMA on 10/17/2015.
  */
 angular
-    .module('myApp')
+    .module('homeTaskBoard')
     .factory('authInterceptor', [function () {
         return {
             request: function (config) {

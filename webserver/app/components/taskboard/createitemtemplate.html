@@ -4,30 +4,33 @@
 <div class="modal-body">
     <form class="form-horizontal">
 
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="textinput">Name</label>
-                <div class="col-md-6">
-                    <input id="textinput"
-                           ng-model="task.name"
-                           name="textinput" type="text" placeholder="Task name" class="form-control input-md" required="">
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="textinput">Name</label>
 
-                </div>
+            <div class="col-md-6">
+                <input id="textinput"
+                       ng-model="task.name"
+                       name="textinput" type="text" placeholder="Task name" class="form-control input-md" required="">
+
             </div>
+        </div>
 
-            <!-- Text input-->
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="description">Description</label>
-                <div class="col-md-6">
-                    <input id="description"
-                           ng-model="task.description"
-                           name="description" type="text" placeholder="Task description here" class="form-control input-md">
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="description">Description</label>
 
-                </div>
+            <div class="col-md-6">
+                <input id="description"
+                       ng-model="task.description"
+                       name="description" type="text" placeholder="Task description here" class="form-control input-md">
+
             </div>
+        </div>
 
         <!-- Select Basic -->
         <div class="form-group">
             <label class="col-md-4 control-label" for="owner">Owner</label>
+
             <div class="col-md-6">
                 <select id="owner"
                         ng-model="task.owner"
@@ -37,17 +40,35 @@
                 </select>
             </div>
         </div>
-            <!-- Text input-->
-            <div class="form-group">
-                <label class="col-md-4 control-label">Deadline</label>
-                <div class="col-md-6">
-                    <div style="display:inline-block; min-height:290px;">
-                        <uib-datepicker ng-model="task.deadline" min-date="minDate" show-weeks="true" class="well well-sm" custom-class="getDayClass(date, mode)"></uib-datepicker>
-                    </div>
 
-                </div>
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="priority">Priority</label>
+            <div class="col-md-6">
+                <select id="priority"
+                        ng-model="task.priority"
+                        name="owner" class="form-control">
+                    <option value="1">High</option>
+                    <option value="2">Medium</option>
+                    <option value="3">Low</option>
+                </select>
             </div>
+        </div>
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label">Deadline</label>
 
+            <div class="col-md-6">
+                <div style="display:inline-block; min-height:290px;">
+                    <uib-datepicker ng-model="task.deadline"
+                                    min-date="minDate"
+                                    show-weeks="true"
+                                    class="well well-sm"
+                                    starting-day="1"
+                                    custom-class="getDayClass(date, mode)"></uib-datepicker>
+                </div>
+
+            </div>
+        </div>
 
 
     </form>

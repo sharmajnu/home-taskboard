@@ -1,4 +1,4 @@
-<div class="task">
+<div class="task" ng-click="viewTaskDetails(task)">
     <span class="task-name">{{task.name}}</span>
 
     <button ng-if="task.state != 3"
@@ -21,11 +21,11 @@
     <p>{{task.description}}</p>
 
     <div style="float: left">
-        <span class="hdr-lbl">Deadline: </span><span>{{task.deadLine}}</span>
+        <span class="hdr-lbl">Deadline: </span><span>{{task.deadline | date:"dd MMM yyyy"}}</span>
     </div>
     <div style="float: right">
         <span class="hdr-lbl">Created on: </span>
-        <span>{{task.createdDate}}</span>
+        <span>{{task.createdDate | date:"dd MMM yyyy"}}</span>
     </div>
     <div style="clear: both"></div>
 </div>

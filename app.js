@@ -12,7 +12,7 @@ var authRoutes = require('./appserver/controllers/auth.server.controller.js');
 var app = express();
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/ereview');
+mongoose.connect('mongodb://localhost/home-taskboard');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));

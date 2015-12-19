@@ -1,4 +1,4 @@
-angular.module('myApp')
+angular.module('homeTaskBoard')
     .service('userContext', ['$auth', '$http', '$rootScope', function ($auth, $http, $rootScope) {
 
         this.isAuthenticated = false;

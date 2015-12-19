@@ -2,107 +2,152 @@
 
 var app = angular.module('homeTaskBoard.taskboard', ['ngRoute']);
 
-app.config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/taskboard', {
-    templateUrl: '/components/taskboard/taskboard.html',
-    controller: 'TaskController'
-  });
+app.config(['$routeProvider', function ($routeProvider) {
+    $routeProvider.when('/taskboard', {
+        templateUrl: '/components/taskboard/taskboard.html',
+        controller: 'TaskController'
+    });
 }]);
 
-app.controller('TaskController', ['$scope', '$uibModal', function($scope, $uibModal) {
-    $scope.name = 'World';
+app.controller('TaskController', ['$scope', '$uibModal', 'userContext', '$location', '$auth', '$http',
+    function ($scope, $uibModal, userContext, $location, $auth, $http) {
 
-    $scope.states = ['Backlog', 'This week target', 'Completed'];
-    $scope.tasks = [{
-        name: 'Clean Bathroom',
-        deadline: 'Next sunday',
-        createdBy: '1',
-        createdDate: '12 Dec 2015',
-        description: 'Clean both bathrooms including commodes too.'
-    },
-        {
-            name: 'Clean Balcony',
-            deadline: 'Next sunday',
-            createdBy: '1',
-            createdDate: '3 Dec 2015',
-            state: 1
-        },
-        {
-            name: 'Clean Bathroom',
-            deadline: 'Next sunday',
-            createdBy: '1',
-            createdDate: '12 Dec 2015',
-            description: 'Clean both bathrooms including commodes too.',
-            state: 1
-        },
-        {
-            name: 'Second state',
-            deadline: 'Next sunday',
-            createdBy: '1',
-            createdDate: '12 Dec 2015',
-            description: 'Clean both bathrooms including commodes too.',
-            state: 2
-        },
-        {
-            name: 'Shopping done',
-            deadline: 'Next sunday',
-            createdBy: '1',
-            createdDate: '12 Dec 2015',
-            description: 'Clean both bathrooms including commodes too.',
-            state: 3
-        }];
+        $scope.name = 'World';
 
-    $scope.open = function (task) {
+        $scope.states = ['Backlog', 'This week target', 'Completed'];
 
-        var modalInstance = $uibModal.open({
-            animation: true,
-            templateUrl: 'components/taskboard/createitemtemplate.html',
-            controller: 'CreateTaskModelController',
-            resolve: {
-                task: function () {
-                    if(task){
-                        return task;
-                    } else{
-                        return undefined;
+        function loadTasksFromServer() {
+            $http.get('/api/tasks').then(function (response) {
+                $scope.tasks = response.data;
+
+            }, function (error) {
+                $scope.error = error;
+            });
+        }
+
+        loadTasksFromServer();
+
+        $scope.open = function (task) {
+
+            var modalInstance = $uibModal.open({
+                animation: true,
+                templateUrl: 'components/taskboard/createitemtemplate.html',
+                controller: 'CreateTaskModelController',
+                resolve: {
+                    task: function () {
+                        if (task) {
+                            return task;
+                        } else {
+                            return undefined;
+                        }
                     }
                 }
+            });
+
+            modalInstance.result.then(function (selectedItem) {
+                loadTasksFromServer();
+            }, function () {
+
+            });
+        };
+
+        $scope.viewTaskDetails = function (task) {
+
+            var modalInstance = $uibModal.open({
+                animation: true,
+                templateUrl: 'components/taskboard/taskdetailsview.html',
+                controller: 'ViewTaskModelController',
+                resolve: {
+                    task: function () {
+                        if (task) {
+                            return task;
+                        } else {
+                            return undefined;
+                        }
+                    }
+                }
+            });
+
+            modalInstance.result.then(function (selectedItem) {
+            }, function () {
+
+            });
+        };
+
+        function updateStateAtServer(task) {
+            $http.post('/api/tasks/updatestate/' + task._id, JSON.stringify({state:task.state})).then(function () {
+                console.log('Task updated successfully');
+            }, function (error) {
+                console.error('something went wrong in updating the state at server', error);
+                loadTasksFromServer();
+            });
+        }
+
+        $scope.moveToNextState = function (task) {
+            task.state = task.state + 1;
+            updateStateAtServer(task);
+
+        };
+
+        $scope.moveToPreviousState = function (task) {
+            task.state = task.state - 1;
+            updateStateAtServer(task);
+        };
+    }]);
+
+
+app.controller('CreateTaskModelController', ['$scope', '$uibModalInstance', '$http', 'task',
+    function ($scope, $uibModalInstance, $http, task) {
+
+
+        $scope.task = task || {state: 1, priority: 3};
+
+        $scope.ok = function () {
+
+            if ($scope.task._id) {
+                $http.put('/api/tasks/' + $scope.task._id, JSON.stringify($scope.task)).then(function () {
+                    console.log('Task updated successfully');
+                }, function (error) {
+                    console.log(error);
+                });
+
+            } else {
+
+                console.log($scope.task);
+
+                $http.post('/api/tasks', JSON.stringify($scope.task)).then(function (res) {
+                    var id = res.data;
+                    console.log(id, ": Task created successfully...");
+
+                }, function (error) {
+                    console.log(error);
+                });
             }
-        });
 
-        modalInstance.result.then(function (selectedItem) {
-            $scope.tasks.push(selectedItem);
-        }, function () {
-            $log.info('Modal dismissed at: ' + new Date());
-        });
-    };
+            $uibModalInstance.close($scope.task);
+        };
 
-    $scope.moveToNextState = function(task){
-        task.state = task.state + 1;
-    }
+        $scope.cancel = function () {
+            $uibModalInstance.dismiss('cancel');
+        };
+    }]);
 
-    $scope.moveToPreviousState = function(task){
-        task.state = task.state - 1;
-    }
+app.controller('ViewTaskModelController', ['$scope', '$uibModalInstance', '$http', 'task',
+    function ($scope, $uibModalInstance, $http, task) {
 
+        $scope.task = task;
 
-}]);
+        $scope.ok = function () {
+            $uibModalInstance.close('ok');
+        };
 
-
-app.controller('CreateTaskModelController', function ($scope, $uibModalInstance, task) {
-
-    $scope.task = task || {state: 1};
-
-    $scope.ok = function () {
-        $uibModalInstance.close($scope.task);
-    };
-
-    $scope.cancel = function () {
-        $uibModalInstance.dismiss('cancel');
-    };
-});
+        $scope.cancel = function () {
+            $uibModalInstance.dismiss('cancel');
+        };
+    }]);
 
 app.directive('myTask', function () {
-    return{
+    return {
         restrict: 'E',
         templateUrl: '/components/taskboard/tasktemplate.html',
     }

@@ -8,11 +8,15 @@ angular.module('homeTaskBoard.login', ['ngRoute'])
             controller: 'LoginController'
         });
     }])
-    .controller('LoginController', ['$scope', '$auth', 'userContext', '$rootScope',
-        function($scope, $auth, userContext, $rootScope) {
+    .controller('LoginController', ['$scope', '$auth', 'userContext', '$rootScope', '$location', '$routeParams',
+        function($scope, $auth, userContext, $rootScope, $location, $routeParams) {
 
             if($auth.isAuthenticated()){
                 $scope.authenticated = true;
+
+                if(!$routeParams.manual){
+                    $location.path('taskboard');
+                }
 
             } else{
                 $scope.authenticated = false;
@@ -26,6 +30,9 @@ angular.module('homeTaskBoard.login', ['ngRoute'])
                     userContext.user = response.data.user;
                     userContext.isAuthenticated = true;
                     $rootScope.user = response.data.user;
+
+                    $location.path('taskboard');
+
                 });
 
             };
