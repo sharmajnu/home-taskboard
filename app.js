@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 var webRoutes = require('./webserver/routes');
 var apiRoutes = require('./appserver/api.routes.js');
 var authRoutes = require('./appserver/controllers/auth.server.controller.js');
-var settings = require('settings.js');
+var settings = require('./settings.js');
 
 var app = express();
 
