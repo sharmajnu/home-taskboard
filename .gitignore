@@ -1,3 +1,4 @@
 /node_modules
 /webserver/app/bower_components
 /appserver/config/*.js
+settings.js

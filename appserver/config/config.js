@@ -5,7 +5,7 @@ var config = {
 
     TOKEN_SECRET: 'THIS IS A TOP SECRET',
     SIGNING_ALGO: 'HS512',
-    GOOGLE_APP_SECRET: 'z7EMpJzu2Suetzq4LCqlnJLF'
+    GOOGLE_APP_SECRET: 'DDTmzHP9odWW0xqcHiGsltR1'
 };
 
 module.exports = config;

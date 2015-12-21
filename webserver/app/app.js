@@ -17,7 +17,7 @@ controller('HeaderController', ['$scope', '$rootScope', 'userContext', function 
 .config(['$routeProvider', '$authProvider', function($routeProvider, $authProvider) {
   $routeProvider.otherwise({redirectTo: '/login'});
       $authProvider.google({
-        clientId: '978616852397-tbcptkaj8q0gjtoak4ap58rndnrd0g37.apps.googleusercontent.com',
+        clientId: '465590349245-bo6ola23c8tqh1spin98pcj08f7lhdkd.apps.googleusercontent.com',
         url: '/auth/google'
       });
 }]);
